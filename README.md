@@ -6,7 +6,7 @@ Esnaf için tek sayfalık site yapıcı: işini seç (kuaför, kafe, berber, oto
 
 - Sunucu yok. Site ziyaretçinin tarayıcısında üretilir, hiçbir bilgi bir yere gönderilmez.
 - Üretilen sayfa telefonda hızlı açılır: WhatsApp, arama, yol tarifi ve bugünün çalışma saati tek dokunuşla.
-- `uret.js`, Mahalle Sitenin müşteri siteleri için kullandığı üreticinin tarayıcı sürümüdür.
+- `uret.js`, Mahalle Site'nin müşteri siteleri için kullandığı üreticinin tarayıcı sürümüdür.
 - Örneklerdeki işletmeler ve telefonlar uydurmadır.
 
 Lisans: Apache-2.0
