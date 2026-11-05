@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mahalle Site: dükkânının sitesi, 2 dakikada</title>
+<meta name="description" content="Kuaför, kafe, berber, oto servis… Birkaç soruyu cevapla, telefonda hızlı açılan tek sayfalık siten anında hazır olsun. Ücretsiz, üyeliksiz.">
+<meta property="og:title" content="Mahalle Site: dükkânının sitesi, 2 dakikada">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--zemin:#f6f2ea;--kart:#fffdf9;--yazi:#1d1a16;--soluk:#6a6158;--cizgi:#e4dccf;--vurgu:#c2410c;--vurgu-yazi:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--zemin:#151310;--kart:#1d1a16;--yazi:#efe9df;--soluk:#a89f93;--cizgi:#332e27;--vurgu:#f2733a;--vurgu-yazi:#1b0d05}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--zemin);color:var(--yazi);font:15px/1.55 Inter,system-ui,sans-serif}
+header{max-width:1280px;margin:0 auto;padding:28px 20px 10px}
+.ust{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--vurgu)}
+h1{font:800 clamp(2rem,4.6vw,3.2rem)/1.05 Fraunces,Georgia,serif;margin:8px 0 10px;letter-spacing:-.02em}
+h1 em{font-style:italic;color:var(--vurgu)}
+.alt{color:var(--soluk);max-width:62ch;margin:0}
+main{max-width:1280px;margin:0 auto;padding:18px 20px 40px;display:grid;grid-template-columns:400px 1fr;gap:22px;align-items:start}
+@media (max-width:900px){main{grid-template-columns:1fr}}
+form{background:var(--kart);border:1px solid var(--cizgi);border-radius:18px;padding:18px}
+fieldset{border:0;padding:0;margin:0 0 16px}
+legend{font:700 1.05rem Fraunces,Georgia,serif;margin-bottom:6px}
+label{display:block;font-size:13px;font-weight:600;margin:10px 0 4px}
+.ipucu{font-size:12px;color:var(--soluk);margin:3px 0 0}
+input,textarea,select{width:100%;font:inherit;color:inherit;background:var(--zemin);border:1px solid var(--cizgi);border-radius:10px;padding:9px 11px}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--vurgu);outline-offset:-1px;border-color:transparent}
+textarea{resize:vertical}
+.turler{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.turler button,.renkler button{font:inherit;font-size:13px;font-weight:600;border:1.5px solid var(--cizgi);background:var(--zemin);color:var(--yazi);border-radius:12px;padding:10px 6px;cursor:pointer}
+.turler button span{display:block;font-size:20px}
+.turler button[aria-pressed="true"],.renkler button[aria-pressed="true"]{border-color:var(--vurgu);background:color-mix(in srgb,var(--vurgu) 10%,var(--zemin))}
+.renkler{display:flex;gap:8px;flex-wrap:wrap}
+.renkler button{display:flex;gap:6px;align-items:center;padding:8px 10px}
+.renkler i{width:16px;height:16px;border-radius:50%;display:inline-block}
+.iki{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.onizleme{position:sticky;top:12px}
+.cerceve-ust{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.cihaz{display:flex;gap:6px}
+.cihaz button,.indir{font:inherit;font-size:13px;font-weight:600;border-radius:999px;padding:8px 14px;cursor:pointer;border:1px solid var(--cizgi);background:var(--kart);color:var(--yazi)}
+.cihaz button[aria-pressed="true"]{background:var(--yazi);color:var(--zemin);border-color:var(--yazi)}
+.indir{background:var(--vurgu);color:var(--vurgu-yazi);border-color:var(--vurgu)}
+.ekran{border:1px solid var(--cizgi);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 24px 50px -30px rgba(40,25,10,.45);margin:0 auto;transition:max-width .3s}
+.ekran.telefon{max-width:400px;border-radius:30px;border:10px solid #111}
+iframe{display:block;width:100%;height:78vh;border:0;background:#fff}
+#hata{color:var(--vurgu);font-size:13px;min-height:1.2em}
+footer{max-width:1280px;margin:0 auto;padding:10px 20px 40px;font-size:13px;color:var(--soluk)}
+footer a{color:inherit}
+</style>
+</head>
+<body>
+<header>
+  <div class="ust">Mahalle Site · ücretsiz, üyeliksiz</div>
+  <h1>Dükkânının sitesi, <em>iki dakikada.</em></h1>
+  <p class="alt">İşini seç, birkaç bilgiyi değiştir. Sağdaki site sen yazdıkça değişir. Telefonda hızlı açılır; müşterin tek dokunuşla WhatsApp'tan yazar, arar ya da yol tarifi alır. Bitince tek dosya olarak indir.</p>
+</header>
+<main>
+  <form id="form" autocomplete="off" onsubmit="return false">
+    <fieldset>
+      <legend>1. Ne iş yapıyorsun?</legend>
+      <div class="turler" id="turler"></div>
+    </fieldset>
+    <fieldset>
+      <legend>2. İşletmen</legend>
+      <label for="ad">İşletmenin adı</label><input id="ad">
+      <label for="semt">Semt</label><input id="semt" placeholder="ör. Kadıköy · Moda">
+      <label for="baslik">Büyük başlık</label><input id="baslik">
+      <p class="ipucu">*Yıldız arası* renkli yazılır, | işareti satır atlatır.</p>
+      <label for="aciklama">Kısa tanıtım</label><textarea id="aciklama" rows="3"></textarea>
+    </fieldset>
+    <fieldset>
+      <legend>3. Müşteri sana nasıl ulaşsın?</legend>
+      <div class="iki"><div><label for="whatsapp">WhatsApp</label><input id="whatsapp" inputmode="tel"></div>
+      <div><label for="instagram">Instagram</label><input id="instagram" placeholder="kullanıcı adı"></div></div>
+      <label for="adres">Adres</label><input id="adres">
+      <div class="iki"><div><label for="haftaici">Hafta içi</label><input id="haftaici"></div><div><label for="cumartesi">Cumartesi</label><input id="cumartesi"></div></div>
+      <label for="pazar">Pazar</label><input id="pazar">
+    </fieldset>
+    <fieldset>
+      <legend>4. Hizmetler</legend>
+      <textarea id="hizmetler" rows="5"></textarea>
+      <p class="ipucu">Her satıra bir hizmet: "Ad: kısa açıklama". Sadece gerçekten yaptığın işleri yaz.</p>
+      <label for="nedenler">Neden sen? (üç satır)</label><textarea id="nedenler" rows="3"></textarea>
+    </fieldset>
+    <fieldset>
+      <legend>5. Renk</legend>
+      <div class="renkler" id="renkler"></div>
+    </fieldset>
+    <p id="hata" role="alert"></p>
+  </form>
+  <section class="onizleme" aria-label="Sitenin önizlemesi">
+    <div class="cerceve-ust">
+      <div class="cihaz"><button type="button" data-cihaz="telefon" aria-pressed="true">Telefonda</button><button type="button" data-cihaz="masaustu" aria-pressed="false">Bilgisayarda</button></div>
+      <button type="button" class="indir" id="indir">Siteyi indir (.html)</button>
+    </div>
+    <div class="ekran telefon" id="ekran"><iframe id="cerceve" title="Sitenin önizlemesi" sandbox="allow-scripts allow-popups"></iframe></div>
+  </section>
+</main>
+<footer>Örneklerdeki işletmeler ve telefonlar uydurmadır. Siten yalnızca senin tarayıcında oluşturulur, hiçbir yere gönderilmez. Yayına almak için yardım istersen: <a href="https://birtohum.github.io/">Ege</a>.</footer>
+
+<script src="uret.js"></script>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const PALETLER = {
+  "Bronz": {zemin: "#faf7f4", vurgu: "#b0846a", vurguKoyu: "#8e6650", koyu: "#1f1a17", acik: "#f3e6dc", acikYazi: "#6b4a36", gorsel1: "#f1d9c8", gorsel2: "#d9b29a", gorsel3: "#e9d3c3", cizim: "#ffffff"},
+  "Altın": {zemin: "#f8f6f1", vurgu: "#a8843f", vurguKoyu: "#84672e", koyu: "#161513", acik: "#f1e9d6", acikYazi: "#5e4a1f", gorsel1: "#3a352c", gorsel2: "#6b5a33", gorsel3: "#26231e", cizim: "#d9bb76"},
+  "Orman": {zemin: "#f4f6f1", vurgu: "#3f7a4f", vurguKoyu: "#2d5c3a", koyu: "#13201a", acik: "#e1ecdf", acikYazi: "#2a4a33", gorsel1: "#cfe0cc", gorsel2: "#8fb594", gorsel3: "#e8f0e6", cizim: "#ffffff"},
+  "Deniz": {zemin: "#f3f6f8", vurgu: "#2f6f9a", vurguKoyu: "#225475", koyu: "#111a22", acik: "#dde9f1", acikYazi: "#1f4560", gorsel1: "#c9dceb", gorsel2: "#8db3cf", gorsel3: "#e6eff6", cizim: "#ffffff"},
+  "Gül": {zemin: "#fbf5f6", vurgu: "#b54a68", vurguKoyu: "#8f3651", koyu: "#22151a", acik: "#f6e1e7", acikYazi: "#6e2c40", gorsel1: "#f0cfd8", gorsel2: "#d996a9", gorsel3: "#f7e6eb", cizim: "#ffffff"},
+};
+const TURLER = {
+  kuafor: {ikon: "✂", ad: "Kuaför", ornek: "Lale Kuaför", palet: "Gül", baslik: "Önce seni dinleriz, | sonra *istediğin* model.",
+    aciklama: "Mahallenin sıcak, aile işletmesi salonu. Kesimden boyaya, gelin saçından bakıma.",
+    hizmetler: "Kesim ve fön: Sana yakışacak modeli birlikte konuşur, sonra özenle keseriz.\nBoya ve bakım: Dip boyadan renk değişimine, saçını yormadan.\nGelin saçı: Özel günün için saç ve makyaj bir arada.",
+    nedenler: "Seni dinliyoruz: Ne istediğini anlamadan makası elimize almayız.\nTemiz ve özenli: Her müşteriden sonra her şey baştan.\nRandevuna sadık: Bekletmeden, söylediğimiz saatte."},
+  kafe: {ikon: "☕", ad: "Kafe", ornek: "Köşe Kahve", palet: "Bronz", baslik: "Mahallenin *en sıcak* | köşesi.",
+    aciklama: "Taze çekilmiş kahve, ev yapımı tatlılar ve sakin bir köşe. Çalışmaya da, sohbete de.",
+    hizmetler: "Kahveler: Her gün taze çekilen çekirdeklerle.\nEv yapımı tatlılar: Sabah fırından çıkan kurabiye ve kekler.\nKahvaltı: Hafta sonu serpme kahvaltı.",
+    nedenler: "Taze: Kahve her sabah çekilir.\nSakin: Çalışmak için priz ve internet var.\nSamimi: Adını bilen bir kafe."},
+  berber: {ikon: "💈", ad: "Berber", ornek: "Usta Berber", palet: "Altın", baslik: "Klasik usta, | *temiz* tıraş.",
+    aciklama: "Saç, sakal ve ustura tıraşı. Yıllardır aynı özen, aynı koltuk.",
+    hizmetler: "Saç kesimi: Klasik ve modern kesimler.\nSakal: Şekillendirme ve ustura tıraşı.\nÇocuk kesimi: Sabırla, korkutmadan.",
+    nedenler: "Usta eller: Yılların tecrübesi.\nHijyen: Her müşteriye temiz havlu ve tek kullanımlık jilet.\nRandevulu: Sıra beklemeden gel."},
+  oto: {ikon: "🔧", ad: "Oto servis", ornek: "Güven Oto", palet: "Deniz", baslik: "Arabanı *bize* bırak, | aklın kalmasın.",
+    aciklama: "Periyodik bakım, fren, yağ değişimi ve arıza tespiti. Yapılacak işi ve fiyatı önceden söyleriz.",
+    hizmetler: "Periyodik bakım: Yağ, filtre ve genel kontrol.\nFren ve süspansiyon: Balata, disk, amortisör.\nArıza tespiti: Bilgisayarlı kontrol.",
+    nedenler: "Önceden fiyat: İşe başlamadan ne tutacağını söyleriz.\nDeğişen parçayı görürsün: Eskisini sana gösteririz.\nZamanında teslim: Söylediğimiz saatte hazır."},
+  manav: {ikon: "🍎", ad: "Manav", ornek: "Bereket Manav", palet: "Orman", baslik: "Her sabah *taze*, | kapına kadar.",
+    aciklama: "Halden her sabah gelen meyve ve sebze. Mahalle içine eve teslim.",
+    hizmetler: "Meyve ve sebze: Her sabah halden taze.\nEve teslim: WhatsApp'tan yaz, kapına getirelim.\nMevsim kasaları: Reçellik, salçalık, turşuluk.",
+    nedenler: "Taze: Bayat ürün rafta durmaz.\nDürüst tartı: Ne aldıysan o.\nKomşu: Seni tanıyan bir dükkân."},
+  terzi: {ikon: "🧵", ad: "Terzi", ornek: "İnce Dikiş Terzi", palet: "Bronz", baslik: "Üstüne *tam* oturana | kadar.",
+    aciklama: "Paça, daraltma, fermuar ve özel dikim. Kıyafetini atma, getir.",
+    hizmetler: "Tadilat: Paça, daraltma, bol yapma.\nFermuar ve düğme: Aynı gün teslim.\nÖzel dikim: Ölçüye göre dikim.",
+    nedenler: "Özen: Her dikiş elle kontrol edilir.\nHızlı: Küçük işler aynı gün.\nUygun fiyat: Önceden söyleriz."},
+};
+let tur = "kuafor", palet = TURLER.kuafor.palet;
+
+function doldur(t) {
+  const x = TURLER[t]; tur = t; palet = x.palet;
+  $("ad").value = x.ornek; $("semt").value = "Kadıköy · Moda"; $("baslik").value = x.baslik; $("aciklama").value = x.aciklama;
+  $("whatsapp").value = "0555 000 00 00"; $("instagram").value = ""; $("adres").value = "Örnek Mah. Çiçek Sok. No: 12, Kadıköy / İstanbul";
+  $("haftaici").value = "09:00 – 20:00"; $("cumartesi").value = "09:00 – 20:00"; $("pazar").value = "Kapalı";
+  $("hizmetler").value = x.hizmetler; $("nedenler").value = x.nedenler;
+  dugmeleriGuncelle(); ciz();
+}
+function satirlar(metin, ikonlar) {
+  return metin.split("\n").map(s => s.trim()).filter(Boolean).map((s, i) => {
+    const [a, ...m] = s.split(":"); return {ikon: ikonlar[i % ikonlar.length], ad: a.trim(), baslik: a.trim(), metin: m.join(":").trim()};
+  });
+}
+function bilgi() {
+  const v = (id) => $(id).value.trim();
+  const ad = v("ad"), parca = ad.split(" ");
+  const hi = v("haftaici"), ct = v("cumartesi"), pz = v("pazar");
+  return {
+    taslak: false, ad, logo: [parca[0] || ad, parca.length > 1 ? "·" : "", parca.slice(1).join(" ")],
+    semt: v("semt") || "Mahalle", baslik: v("baslik") || ad, aciklama: v("aciklama"),
+    whatsapp: v("whatsapp"), telefonlar: v("whatsapp") ? [v("whatsapp")] : [], instagram: v("instagram").replace(/^@/, ""),
+    adres: v("adres"), saatler: {Pazartesi: hi, Salı: hi, Çarşamba: hi, Perşembe: hi, Cuma: hi, Cumartesi: ct, Pazar: pz},
+    hizmetler: satirlar(v("hizmetler"), ["✦", "◇", "❀", "✧"]).map(({ikon, ad, metin}) => ({ikon, ad, metin})),
+    nedenler: satirlar(v("nedenler"), [""]).slice(0, 3).map(({baslik, metin}) => ({baslik, metin})),
+    renkler: PALETLER[palet],
+  };
+}
+let son = "";
+function ciz() {
+  try { son = siteUret(bilgi()); $("hata").textContent = ""; $("cerceve").srcdoc = son; }
+  catch (e) { $("hata").textContent = "Bir alan eksik: " + e.message.replace("Eksik alanlar: ", ""); }
+}
+function dugmeleriGuncelle() {
+  document.querySelectorAll("#turler button").forEach(b => b.setAttribute("aria-pressed", b.dataset.tur === tur));
+  document.querySelectorAll("#renkler button").forEach(b => b.setAttribute("aria-pressed", b.dataset.palet === palet));
+}
+$("turler").innerHTML = Object.entries(TURLER).map(([k, x]) => `<button type="button" data-tur="${k}" aria-pressed="false"><span aria-hidden="true">${x.ikon}</span>${x.ad}</button>`).join("");
+$("renkler").innerHTML = Object.entries(PALETLER).map(([k, p]) => `<button type="button" data-palet="${k}" aria-pressed="false"><i style="background:${p.vurgu}"></i>${k}</button>`).join("");
+$("turler").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) doldur(b.dataset.tur); });
+$("renkler").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { palet = b.dataset.palet; dugmeleriGuncelle(); ciz(); } });
+let bekle; $("form").addEventListener("input", () => { clearTimeout(bekle); bekle = setTimeout(ciz, 250); });
+document.querySelectorAll(".cihaz button").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".cihaz button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  $("ekran").classList.toggle("telefon", b.dataset.cihaz === "telefon");
+});
+$("indir").onclick = () => {
+  if (!son) return;
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([son], {type: "text/html"}));
+  a.download = ($("ad").value.trim() || "site").toLocaleLowerCase("tr").replace(/[^a-z0-9çğıöşü]+/g, "-") + ".html"; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+};
+doldur("kuafor");
+</script>
+</body>
+</html>
